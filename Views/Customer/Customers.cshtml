@@ -1,0 +1,30 @@
+﻿@model IEnumerable<OrdersApp.Models.Customer>
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.Fname @customer.Lname</td>
+                <td>@customer.Address</td>
+                <td>@customer.Phone</td>
+                <td>@Html.ActionLink("Edit", "EditCustomer", "Customer", new { id = customer.Id }, null)</td>
+                <td>@Html.ActionLink("Delete", "DeleteCustomer", "Customer", new { id = customer.Id }, null)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Add Customer", "AddCustomer", "Customer")

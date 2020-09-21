@@ -1,0 +1,36 @@
+﻿
+@model IEnumerable<OrdersApp.Models.Product>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>CreationDate</th>
+            <th>ExpiryDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+        <tr>
+            <td>@product.Id</td>
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+            <td>@product.Description</td>
+            <td>@product.CreationDate</td>
+            <td>@product.ExpiredDate</td>
+            <td>@Html.ActionLink("Edit", "EditProduct", "Product", new { id = product.Id }, null)</td>
+            <td>@Html.ActionLink("Delete", "DeleteProduct", "Product", new { id = product.Id }, null)</td>
+        </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Add Product", "AddProduct", "Product")
+

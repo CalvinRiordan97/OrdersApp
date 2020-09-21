@@ -1,0 +1,29 @@
+﻿@model OrdersApp.Models.Product
+@{
+    ViewBag.Title = "AddProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Product</h2>
+
+@using (Html.BeginForm("Create", "Product"))
+{
+    <div class=" form-group">
+        <Label>Name</Label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class=" form-group">
+        <Label>Price</Label>
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+    </div>
+
+    <div class=" form-group">
+        <Label>Description</Label>
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Id);
+    <button type="submit" class="btn btn-primary">Add</button>
+}
+
+

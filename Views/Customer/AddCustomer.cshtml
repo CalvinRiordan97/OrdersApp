@@ -1,0 +1,34 @@
+﻿@model OrdersApp.Models.Customer
+@{
+    ViewBag.Title = "AddCustomers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Customer</h2>
+
+@using (Html.BeginForm("Create", "Customer")) 
+{ 
+<div class=" form-group">
+    <Label>First Name</Label>
+    @Html.TextBoxFor(m => m.Fname, new { @class = "form-control" })
+</div>
+
+<div class=" form-group">
+    <Label>Last Name</Label>
+    @Html.TextBoxFor(m => m.Lname, new { @class = "form-control" })
+</div>
+
+<div class=" form-group">
+    <Label>Address</Label>
+    @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+</div>
+
+<div class=" form-group">
+    <Label>Phone</Label>
+    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+</div>
+@Html.HiddenFor(m => m.Id);
+<button type="submit" class="btn btn-primary">Add</button>
+}
+
+
